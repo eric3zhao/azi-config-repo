@@ -1,0 +1,26 @@
+demo:
+ cloud:
+  eureka: http://localhost:${demo.cloud.applications.eureka.port:8762}/eureka
+  applications:
+   user: 
+    port: 8090
+    id: spring-cloud-user-provider
+   gateway:
+    port: 8091 
+    id: spring-cloud-gateway
+   zuul: 
+    port: 8092
+    id: spring-cloud-zuul
+   feign: 
+    port: 8093
+    id: spring-cloud-feign
+   eureka: 
+    port: 8763
+    id: spring-cloud-eureka
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true

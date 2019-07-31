@@ -1,5 +1,5 @@
 server:
-  port: 8761
+  port: ${demo.cloud.applications.eureka.port}
 eureka:
   client:
     registerWithEureka: false

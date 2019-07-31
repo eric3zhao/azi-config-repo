@@ -1,19 +1,19 @@
 server:
-  port: 9090
+  port: ${demo.cloud.applications.gateway.port:8081}
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${demo.cloud.eureka:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
 
 spring:
   application:
-    name: spring-cloud-gateway
+    name: ${demo.cloud.applications.gateway.id:gateway-server}
   cloud:
     gateway:
       routes:
         - id: path_router
-          uri: lb://spring-cloud-user-provider
+          uri: lb://${demo.cloud.applications.user.id:user-provider}
           predicates:
             - Path=/user

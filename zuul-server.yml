@@ -1,17 +1,17 @@
 spring:
   application:
-    name: zuul-server
+    name: ${demo.cloud.applications.zuul.id:zuul-server}
 server:
-  port: 8099
+  port: ${demo.cloud.applications.zuul.port:8082}
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${demo.cloud.eureka:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
 zuul:
   routes:
     user:
       path: /user/**
-      serviceId: spring-cloud-user-provider
+      serviceId: ${demo.cloud.applications.user.id:user-provider}
       stripPrefix: true
