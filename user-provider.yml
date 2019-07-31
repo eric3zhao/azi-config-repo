@@ -2,7 +2,7 @@ spring:
   application:
     name: ${demo.cloud.applications.user.id:user-provider}
 server:
-  port: ${demo.cloud.applications.feign.port:0}
+  port: ${demo.cloud.applications.user.port:0}
 eureka:
   client:
     serviceUrl:
