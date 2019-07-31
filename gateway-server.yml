@@ -16,4 +16,6 @@ spring:
         - id: path_router
           uri: lb://${demo.cloud.applications.user.id:user-provider}
           predicates:
-            - Path=/user
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
